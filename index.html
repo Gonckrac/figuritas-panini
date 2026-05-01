@@ -147,10 +147,10 @@ body::after{
   height:2px;border-radius:0 0 3px 3px;
   background:linear-gradient(90deg,var(--sky),var(--yellow));
 }
-.nav-icon{font-size:19px;line-height:1}
+.nav-icon{font-size:22px;line-height:1}
 .nav-label{
   font-family:'Barlow Condensed',sans-serif;
-  font-size:9px;font-weight:700;
+  font-size:11px;font-weight:700;
   letter-spacing:1.2px;text-transform:uppercase;
 }
 
@@ -334,8 +334,8 @@ body::after{
   border-radius:20px;
   color:rgba(255,255,255,0.45);
   font-family:'Barlow Condensed',sans-serif;
-  font-size:11px;font-weight:700;letter-spacing:1px;
-  padding:5px 13px;cursor:pointer;
+  font-size:13px;font-weight:700;letter-spacing:1px;
+  padding:7px 16px;cursor:pointer;
   transition:all .2s;white-space:nowrap;
 }
 .gf-pill.active{
@@ -382,17 +382,17 @@ body::after{
 .prog-fill.red{background:var(--red)}
 
 .fwc-grid{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:5px;
+  display:flex;flex-wrap:wrap;gap:6px;
 }
 .fwc-cube{
-  aspect-ratio:1;border-radius:6px;
+  width:calc(20% - 5px);
+  aspect-ratio:1;border-radius:8px;
   border:1px solid rgba(255,255,255,0.1);
   background:rgba(255,255,255,0.04);
   cursor:pointer;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  gap:1px;padding:2px;
+  display:flex;align-items:center;justify-content:center;
   transition:all .15s;
+  min-width:44px;
 }
 .fwc-cube:active{transform:scale(0.84)}
 .fwc-cube.have{
@@ -404,24 +404,9 @@ body::after{
 }
 .fwc-cube-id{
   font-family:'Bebas Neue',sans-serif;
-  font-size:11px;color:var(--yellow);line-height:1;
+  font-size:13px;color:var(--yellow);line-height:1;letter-spacing:0.5px;
 }
 .fwc-cube.have .fwc-cube-id{color:var(--navy)}
-.fwc-cube-name{
-  font-size:6px;color:rgba(255,255,255,0.35);
-  text-align:center;line-height:1.2;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
-.fwc-cube.have .fwc-cube-name{color:rgba(0,0,0,0.55)}
-.fwc-cube.double{
-  background:linear-gradient(105deg,#FF6600 0%,#FF8800 25%,#FFEE88 50%,#FF8800 75%,#FF6600 100%);
-  background-size:200% auto;
-  border-color:rgba(255,136,0,0.9);
-  animation:shimmer 2.5s linear infinite;
-  box-shadow:0 2px 12px rgba(255,100,0,0.35);
-}
-.fwc-cube.double .fwc-cube-id{color:var(--navy)}
-.fwc-cube.double .fwc-cube-name{color:rgba(0,0,0,0.5)}
 
 /* Group block */
 .grp-block{margin-bottom:18px;content-visibility:auto;contain-intrinsic-size:auto 520px;}
@@ -468,7 +453,7 @@ body::after{
   box-shadow:0 0 16px rgba(255,210,0,0.2);
 }
 .c-banner{
-  position:relative;height:54px;overflow:hidden;
+  position:relative;height:64px;overflow:hidden;
 }
 .c-banner-img{
   width:100%;height:100%;object-fit:cover;display:block;
@@ -481,16 +466,16 @@ body::after{
 }
 .c-banner-name{
   font-family:'Barlow Condensed',sans-serif;
-  font-size:12px;font-weight:700;
+  font-size:14px;font-weight:700;
   color:rgba(255,255,255,0.96);
   text-shadow:0 1px 5px rgba(0,0,0,0.95);
   line-height:1;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  max-width:72%;
+  max-width:70%;
 }
 .c-banner-count{
   font-family:'Bebas Neue',sans-serif;
-  font-size:15px;color:var(--yellow);
+  font-size:18px;color:var(--yellow);
   text-shadow:0 1px 5px rgba(0,0,0,0.95);
   line-height:1;flex-shrink:0;
 }
@@ -526,7 +511,7 @@ body::after{
 .s-cube:active{transform:scale(0.78)}
 .s-cube .sn{
   font-family:'Bebas Neue',sans-serif;
-  font-size:10px;color:rgba(255,255,255,0.22);
+  font-size:12px;color:rgba(255,255,255,0.22);
   line-height:1;pointer-events:none;
   letter-spacing:0;
 }
@@ -536,22 +521,6 @@ body::after{
   box-shadow:0 1px 5px rgba(255,210,0,0.22);
 }
 .s-cube.have .sn{color:var(--navy)}
-.s-cube.double{
-  background:linear-gradient(135deg,#FF8800,var(--yellow));
-  border-color:rgba(255,136,0,0.65);
-  box-shadow:0 1px 5px rgba(255,136,0,0.3);
-}
-.s-cube.double .sn{color:var(--navy)}
-.s-cube.double::after{
-  content:'★';position:absolute;top:1px;right:1px;
-  font-size:5px;color:rgba(0,0,0,0.6);line-height:1;
-}
-.c-card.complete .s-cube.double{
-  background:linear-gradient(135deg,#00C853,var(--green));
-  border-color:rgba(0,200,83,0.6);
-}
-.c-card.complete .s-cube.double::after{color:rgba(255,255,255,0.7)}
-.c-card.complete .s-cube.double .sn{color:rgba(255,255,255,0.9)}
 .c-card.complete .s-cube.have{
   background:linear-gradient(135deg,var(--green),var(--green2));
   border-color:rgba(0,166,81,0.55);
@@ -562,11 +531,11 @@ body::after{
 .c-btns{display:flex;gap:5px}
 .c-btn{
   flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
-  border-radius:7px;padding:5px 0;
+  border-radius:8px;padding:9px 0;
   font-family:'Barlow Condensed',sans-serif;
-  font-size:9px;font-weight:800;
+  font-size:12px;font-weight:800;
   letter-spacing:1px;text-transform:uppercase;
-  color:rgba(255,255,255,0.45);cursor:pointer;transition:all .15s;
+  color:rgba(255,255,255,0.5);cursor:pointer;transition:all .15s;
 }
 .c-btn:active{background:var(--sky3);border-color:var(--sky2);color:var(--sky)}
 .c-btn.del:active{background:rgba(200,16,46,0.18);border-color:var(--red);color:#ff6070}
@@ -660,19 +629,22 @@ body::after{
 }
 .miss-tag.fwc-t{background:linear-gradient(135deg,var(--yellow),var(--green));color:var(--navy)}
 .miss-sub{font-size:11px;color:rgba(255,255,255,0.35)}
-.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{
   background:rgba(200,16,46,0.15);
   border:1px solid rgba(200,16,46,0.25);
   color:#ff7585;
   font-family:'Bebas Neue',sans-serif;
-  font-size:12px;padding:2px 8px;border-radius:4px;letter-spacing:0.5px;
+  font-size:14px;padding:6px 11px;border-radius:6px;letter-spacing:0.5px;
+  cursor:pointer;transition:all .15s;user-select:none;
 }
+.chip:active{background:rgba(0,166,81,0.25);border-color:var(--green);color:var(--green);transform:scale(0.92)}
 .chip.fc{
-  background:rgba(255,216,0,0.1);
-  border-color:rgba(255,216,0,0.25);
+  background:rgba(255,210,0,0.1);
+  border-color:rgba(255,210,0,0.25);
   color:var(--yellow);
 }
+.chip.fc:active{background:rgba(0,166,81,0.25);border-color:var(--green);color:var(--green);transform:scale(0.92)}
 .all-ok{text-align:center;padding:50px 20px}
 .ok-trophy{font-size:56px;margin-bottom:12px}
 .all-ok p{
@@ -817,7 +789,7 @@ body::after{
 
   <div class="stats-grid">
     <div class="stat-card y"><div class="sn" id="s1">0%</div><div class="sl">Completado</div></div>
-    <div class="stat-card g"><div class="sn" id="s2">0</div><div class="sl">Tengo · <span id="s5" style="color:var(--sky);font-family:'Barlow Condensed';font-size:12px;font-weight:700">0 rep.</span></div></div>
+    <div class="stat-card g"><div class="sn" id="s2">0</div><div class="sl">Tengo</div></div>
     <div class="stat-card b"><div class="sn" id="s3">979</div><div class="sl">Me faltan</div></div>
     <div class="stat-card r"><div class="sn" id="s4">0</div><div class="sl">Países completos</div></div>
   </div>
@@ -1039,6 +1011,7 @@ function migrateData(){
   }));
   if(!ST.FWC) ST.FWC=Array(19).fill(0);
   else if(ST.FWC.some(v=>typeof v==='boolean')) ST.FWC=ST.FWC.map(v=>v?1:0);
+  ST.FWC=ST.FWC.slice(0,19); // nunca más de 19
   while(ST.FWC.length<19) ST.FWC.push(0);
 }
 function load(){
@@ -1053,15 +1026,13 @@ function save(){
 
 // ── STATS ──
 function calcStats(){
-  let have=0,doubles=0,complete=0;
+  let have=0,complete=0;
   GROUPS.forEach(({teams})=>teams.forEach(({c})=>{
     const n=ST[c].filter(v=>v>=1).length;
-    doubles+=ST[c].filter(v=>v>=2).length;
     have+=n; if(n===20)complete++;
   }));
   have+=ST.FWC.filter(v=>v>=1).length;
-  doubles+=ST.FWC.filter(v=>v>=2).length;
-  return {have,doubles,missing:979-have,complete,pct:Math.round(have/979*100)};
+  return {have,missing:979-have,complete,pct:Math.round(have/979*100)};
 }
 function updateStats(){
   const s=calcStats();
@@ -1071,7 +1042,6 @@ function updateStats(){
   document.getElementById('s2').textContent=s.have;
   document.getElementById('s3').textContent=s.missing;
   document.getElementById('s4').textContent=s.complete;
-  document.getElementById('s5').textContent=s.doubles+' rep.';
   const all=GROUPS.flatMap(({teams})=>teams);
   const sorted=[...all].sort((a,b)=>ST[a.c].filter(v=>v>=1).length-ST[b.c].filter(v=>v>=1).length);
   const behind=sorted.slice(0,4), ahead=sorted.slice(-4).reverse();
@@ -1086,13 +1056,11 @@ function updateStats(){
 }
 
 // ── TOGGLE ──
-// Ciclo: 0 (no tengo) → 1 (tengo) → 2 (repetida) → 0
-function toggleS(code,idx){ ST[code][idx]=(ST[code][idx]+1)%3; save(); updateStats(); refreshCard(code); }
-function toggleF(idx){ ST.FWC[idx]=(ST.FWC[idx]+1)%3; save(); updateStats(); refreshFWC(); }
+function toggleS(code,idx){ ST[code][idx]=ST[code][idx]>=1?0:1; save(); updateStats(); refreshCard(code); }
+function toggleF(idx){ ST.FWC[idx]=ST.FWC[idx]>=1?0:1; save(); updateStats(); refreshFWC(); }
 function setAll(code,val){ ST[code]=Array(20).fill(val?1:0); save(); updateStats(); refreshCard(code); }
 
 // ── BUILD FWC ──
-function fwcClass(v){ return v===0?'':v===1?' have':' double'; }
 function buildFWC(){
   const have=ST.FWC.filter(v=>v>=1).length, pct=Math.round(have/19*100);
   return `<div class="fwc-block" id="fwcBlock">
@@ -1104,9 +1072,8 @@ function buildFWC(){
     <div class="prog-track"><div class="prog-fill gold" id="fwcProg" style="width:${pct}%"></div></div>
     <div class="fwc-grid">
       ${FWC_CARDS.map((c,i)=>`
-        <div class="fwc-cube${fwcClass(ST.FWC[i])}" id="fd${i}" onclick="toggleF(${i})">
+        <div class="fwc-cube${ST.FWC[i]>=1?' have':''}" id="fd${i}" onclick="toggleF(${i})">
           <div class="fwc-cube-id">${c.id}</div>
-          <div class="fwc-cube-name">${c.name}</div>
         </div>`).join('')}
     </div>
   </div>`;
@@ -1117,14 +1084,13 @@ function refreshFWC(){
   document.getElementById('fwcBadge').textContent=`${have}/19`;
   document.getElementById('fwcSub').textContent=`${pct}% completado · faltan ${19-have}`;
   document.getElementById('fwcProg').style.width=pct+'%';
-  FWC_CARDS.forEach((_,i)=>{ const d=document.getElementById('fd'+i); if(d) d.className='fwc-cube'+fwcClass(ST.FWC[i]); });
+  FWC_CARDS.forEach((_,i)=>{ const d=document.getElementById('fd'+i); if(d) d.className='fwc-cube'+(ST.FWC[i]>=1?' have':''); });
 }
 
 // ── BUILD CARD ──
-function cubeClass(v){ return v===0?'':v===1?' have':' have double'; }
 function buildCard({n,c,iso}){
   const arr=ST[c], have=arr.filter(v=>v>=1).length, pct=Math.round(have/20*100);
-  const cubes=arr.map((v,i)=>`<div class="s-cube${cubeClass(v)}" onclick="toggleS('${c}',${i})"><span class="sn">${i+1}</span></div>`).join('');
+  const cubes=arr.map((v,i)=>`<div class="s-cube${v>=1?' have':''}" onclick="toggleS('${c}',${i})"><span class="sn">${i+1}</span></div>`).join('');
   return `<div class="c-card${have===20?' complete':''}" id="card-${c}">
     <div class="c-banner">
       <img class="c-banner-img" src="${flagUrl(iso)}" loading="lazy" alt="${n}">
@@ -1149,7 +1115,7 @@ function refreshCard(code){
   el.className='c-card'+(have===20?' complete':'');
   el.querySelector('.c-banner-count').textContent=`${have}/20`;
   el.querySelector('.c-bar-fill').style.width=pct+'%';
-  el.querySelectorAll('.s-cube').forEach((cu,i)=>{ cu.className='s-cube'+cubeClass(arr[i]); });
+  el.querySelectorAll('.s-cube').forEach((cu,i)=>{ cu.className='s-cube'+(arr[i]>=1?' have':''); });
 }
 
 // ── BUILD GROUP ──
@@ -1236,12 +1202,13 @@ function goTeam(code,g){
 // ── MISSING ──
 function renderMissing(){
   let html='', tot=0;
-  const fm=FWC_CARDS.filter((_,i)=>ST.FWC[i]===0);
+  // FWC: preservar índice original para poder marcar la carta correcta
+  const fm=FWC_CARDS.map((card,i)=>ST.FWC[i]===0?{...card,idx:i}:null).filter(Boolean);
   if(fm.length){
     tot+=fm.length;
     html+=`<div class="miss-block">
       <div class="miss-head"><span class="miss-tag fwc-t">FWC</span><span class="miss-sub">Cartas especiales · ${fm.length} faltan</span></div>
-      <div class="chips">${fm.map(c=>`<span class="chip fc">${c.id}</span>`).join('')}</div>
+      <div class="chips">${fm.map(fc=>`<span class="chip fc" onclick="markFWC(${fc.idx})">${fc.id}</span>`).join('')}</div>
     </div>`;
   }
   GROUPS.forEach(({g,teams})=>{
@@ -1250,13 +1217,13 @@ function renderMissing(){
       const miss=ST[c].map((v,i)=>v===0?i+1:null).filter(Boolean);
       if(miss.length){
         tot+=miss.length;
-        gh+=`<div style="margin-bottom:9px">
-          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
-            <img src="${flagUrl(iso)}" style="width:18px;height:12px;border-radius:2px;border:1px solid rgba(255,255,255,0.1)" loading="lazy">
-            <span style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;color:rgba(255,255,255,0.55)">${n}</span>
-            <span style="font-family:'Barlow Condensed';font-size:11px;color:var(--red)">(${miss.length} faltan)</span>
+        gh+=`<div style="margin-bottom:10px">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px">
+            <img src="${flagUrl(iso)}" style="width:22px;height:15px;border-radius:2px;border:1px solid rgba(255,255,255,0.1)" loading="lazy">
+            <span style="font-family:'Barlow Condensed';font-size:13px;font-weight:700;color:rgba(255,255,255,0.65)">${n}</span>
+            <span style="font-family:'Barlow Condensed';font-size:12px;color:var(--red)">(${miss.length} faltan)</span>
           </div>
-          <div class="chips">${miss.map(n=>`<span class="chip">${c}-${String(n).padStart(2,'0')}</span>`).join('')}</div>
+          <div class="chips">${miss.map(num=>`<span class="chip" onclick="markSticker('${c}',${num-1})">${c}-${String(num).padStart(2,'0')}</span>`).join('')}</div>
         </div>`;
       }
     });
@@ -1265,6 +1232,17 @@ function renderMissing(){
   if(!tot) html=`<div class="all-ok"><div class="ok-trophy">🏆</div><p>¡Álbum completo!</p></div>`;
   document.getElementById('missingContent').innerHTML=html;
   document.querySelector('.copy-btn').style.display=tot?'':'none';
+}
+
+function markSticker(code,idx){
+  ST[code][idx]=1;
+  save(); updateStats(); renderMissing();
+  toast(`✓ ${code}-${String(idx+1).padStart(2,'0')}`);
+}
+function markFWC(idx){
+  ST.FWC[idx]=1;
+  save(); updateStats(); renderMissing();
+  toast(`✓ FWC${String(idx+1).padStart(2,'0')}`);
 }
 function copyMissing(){
   let lines=['=== FALTANTES PANINI MUNDIAL 2026 ===',''];
