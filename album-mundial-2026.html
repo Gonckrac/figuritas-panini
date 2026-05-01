@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Álbum Panini · FIFA World Cup 2026™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#071A2E;
+  --navy2:#0E2540;
+  --navy3:#163660;
+  --navy4:#1E4880;
+  --yellow:#FFD200;
+  --yellow2:#F5BE00;
+  --yellow3:rgba(255,210,0,0.15);
+  --sky:#00B4E7;
+  --sky2:#0090C0;
+  --sky3:rgba(0,180,231,0.15);
+  --green:#00A651;
+  --green2:#007A3C;
+  --green3:rgba(0,166,81,0.15);
+  --white:#FFFFFF;
+  --off:#F5F0E8;
+  --red:#C8102E;
+  --gray1:#E8E4D4;
+  --gray2:#B0A890;
+  --gray3:#7A7060;
+  --text:#14100A;
+  --text2:#4A4030;
+  --nav-h:62px;
+  --radius:13px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{min-height:100%;overflow-x:hidden}
+
+body{
+  font-family:'Barlow',sans-serif;
+  background:var(--navy);
+  color:var(--white);
+  padding-bottom:var(--nav-h);
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:0.4;
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background-image:repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 50px,
+    rgba(0,180,231,0.018) 50px,
+    rgba(0,180,231,0.018) 51px
+  );
+  pointer-events:none;z-index:0;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes shimmer{
+  0%{background-position:200% center}
+  100%{background-position:-200% center}
+}
+@keyframes float-geo{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-8px) scale(1.04)}
+}
+@keyframes pulse-glow{
+  0%,100%{box-shadow:0 0 12px rgba(255,210,0,0.4)}
+  50%{box-shadow:0 0 22px rgba(0,180,231,0.7),0 0 38px rgba(255,210,0,0.3)}
+}
+
+/* ─── TOPBAR ─── */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--navy);
+  border-bottom:2px solid var(--sky);
+  padding:0 16px;
+  height:54px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.topbar-left h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:21px;letter-spacing:2.5px;
+  color:var(--white);line-height:1;
+}
+.topbar-left p{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9px;color:var(--yellow);
+  letter-spacing:3.5px;text-transform:uppercase;
+  margin-top:1px;
+}
+.sync-pill{
+  display:flex;align-items:center;gap:5px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);
+  padding:4px 9px;border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.07);
+  transition:all .4s;
+}
+.sync-pill .sync-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gray2);flex-shrink:0;
+  transition:background .4s;
+}
+.sync-pill.ok{color:var(--green);border-color:rgba(0,166,81,0.2)}
+.sync-pill.ok .sync-dot{background:var(--green)}
+.sync-pill.syncing{color:var(--sky);border-color:rgba(0,180,231,0.2)}
+.sync-pill.syncing .sync-dot{background:var(--sky);animation:pulse-glow 1s ease infinite}
+.sync-pill.error{color:var(--red);border-color:rgba(200,16,46,0.2)}
+.sync-pill.error .sync-dot{background:var(--red)}
+.topbar-emblem{
+  width:36px;height:36px;
+  background:linear-gradient(135deg,var(--yellow),var(--green));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  box-shadow:0 0 12px rgba(255,210,0,0.4);
+  animation:pulse-glow 3s ease-in-out infinite;
+}
+
+/* ─── BOTTOM NAV ─── */
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:var(--navy2);
+  border-top:2px solid var(--navy3);
+  height:var(--nav-h);
+  display:flex;
+}
+.nav-btn{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2px;background:none;border:none;color:rgba(255,255,255,0.35);
+  cursor:pointer;padding:6px 4px;transition:color .2s;
+  position:relative;
+}
+.nav-btn.active{color:var(--yellow)}
+.nav-btn.active::before{
+  content:'';position:absolute;top:0;left:22%;right:22%;
+  height:2px;border-radius:0 0 3px 3px;
+  background:linear-gradient(90deg,var(--sky),var(--yellow));
+}
+.nav-icon{font-size:19px;line-height:1}
+.nav-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9px;font-weight:700;
+  letter-spacing:1.2px;text-transform:uppercase;
+}
+
+/* ─── PAGES ─── */
+.page{display:none;position:relative;z-index:1;padding:14px 14px 10px}
+.page.active{display:block}
+.hidden{display:none!important}
+
+/* ═══════════════════════════════
+   INICIO
+═══════════════════════════════ */
+.hero{
+  background:
+    linear-gradient(135deg, rgba(0,180,231,0.22) 0%, transparent 45%),
+    linear-gradient(225deg, rgba(255,210,0,0.14) 0%, transparent 50%),
+    linear-gradient(315deg, rgba(0,166,81,0.12) 0%, transparent 50%),
+    var(--navy2);
+  border:1px solid rgba(255,216,0,0.2);
+  border-radius:18px;
+  padding:22px 18px 20px;
+  margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+.hero-geo{
+  position:absolute;right:-20px;top:-20px;
+  width:130px;height:130px;
+  background:linear-gradient(135deg,rgba(0,180,231,0.18),rgba(0,166,81,0.08));
+  border-radius:50%;
+  border:1px solid rgba(0,180,231,0.15);
+  animation:float-geo 5s ease-in-out infinite;
+}
+.hero-geo2{
+  position:absolute;right:32px;top:32px;
+  width:65px;height:65px;
+  background:rgba(255,210,0,0.08);
+  border-radius:50%;
+  border:1px solid rgba(255,210,0,0.12);
+  animation:float-geo 5s ease-in-out infinite reverse;
+}
+.hero-eyebrow{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--yellow);margin-bottom:10px;
+  display:flex;align-items:center;gap:6px;
+}
+.hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--yellow);border-radius:2px}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:38px;line-height:.95;
+  color:var(--white);margin-bottom:10px;
+  letter-spacing:1px;
+}
+.hero-title span{color:var(--yellow)}
+.hero-sub{
+  font-size:13px;color:rgba(255,255,255,0.6);
+  line-height:1.5;margin-bottom:18px;
+  max-width:280px;
+}
+.hero-prog-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;color:rgba(255,255,255,0.5);
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;
+}
+.hero-prog-row strong{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;color:var(--yellow);
+  letter-spacing:1px;
+}
+.hero-track{
+  height:7px;background:rgba(255,255,255,0.08);
+  border-radius:20px;overflow:hidden;margin-bottom:18px;
+  position:relative;
+}
+.hero-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--sky),var(--yellow));
+  border-radius:20px;transition:width .8s cubic-bezier(.4,0,.2,1);
+  position:relative;
+}
+.hero-fill::after{
+  content:'';position:absolute;right:0;top:0;bottom:0;
+  width:6px;background:rgba(255,255,255,0.6);border-radius:3px;
+}
+.hero-btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn-primary{
+  background:linear-gradient(135deg,var(--yellow),var(--yellow2));
+  color:var(--navy);border:none;border-radius:22px;
+  padding:10px 20px;
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
+  box-shadow:0 4px 14px rgba(255,216,0,0.3);
+  transition:transform .15s,box-shadow .15s;
+}
+.btn-primary:active{transform:scale(0.95);box-shadow:none}
+.btn-outline{
+  background:transparent;color:var(--white);
+  border:1.5px solid rgba(255,255,255,0.25);
+  border-radius:22px;padding:10px 20px;
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.btn-outline:active{border-color:var(--yellow);color:var(--yellow)}
+
+.stats-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:8px;margin-bottom:12px;
+}
+.stat-card{
+  background:var(--navy2);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);padding:13px 14px;
+  position:relative;overflow:hidden;
+}
+.stat-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+}
+.stat-card.y::before{background:linear-gradient(90deg,var(--yellow),transparent)}
+.stat-card.g::before{background:linear-gradient(90deg,var(--green),transparent)}
+.stat-card.b::before{background:linear-gradient(90deg,var(--navy4),transparent)}
+.stat-card.r::before{background:linear-gradient(90deg,var(--red),transparent)}
+.sn{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:34px;line-height:1;color:var(--white);
+}
+.stat-card.y .sn{color:var(--yellow)}
+.stat-card.g .sn{color:var(--green)}
+.sl{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-top:3px;
+}
+
+.quick-card{
+  background:var(--navy2);border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);padding:14px;margin-bottom:12px;
+}
+.qc-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:17px;letter-spacing:2px;color:var(--yellow);
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.qc-title::after{content:'';flex:1;height:1px;background:rgba(255,216,0,0.2)}
+.quick-row{display:flex;gap:10px}
+.quick-col{flex:1}
+.qct{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,0.3);
+  margin-bottom:6px;
+}
+.qi{
+  font-size:11px;color:rgba(255,255,255,0.55);
+  padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+  display:flex;align-items:center;gap:5px;justify-content:space-between;
+}
+.qi .flag-img{width:16px;height:11px;border-radius:1px;object-fit:cover;flex-shrink:0}
+.qi .qname{flex:1;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qi .qval{font-family:'Bebas Neue';font-size:14px;color:var(--red);flex-shrink:0}
+.qi.ok .qval{color:var(--green)}
+
+/* ═══════════════════════════════
+   ALBUM
+═══════════════════════════════ */
+.gf-outer{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding-bottom:4px;margin-bottom:12px;
+  position:sticky;top:54px;z-index:50;
+  background:var(--navy);
+  margin-left:-14px;margin-right:-14px;
+  padding-left:14px;padding-right:14px;
+  padding-top:6px;
+}
+.gf-outer::-webkit-scrollbar{display:none}
+.gf-row{display:flex;gap:5px;min-width:max-content;padding:2px 0}
+.gf-pill{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.09);
+  border-radius:20px;
+  color:rgba(255,255,255,0.45);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  padding:5px 13px;cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.gf-pill.active{
+  background:var(--sky);border-color:var(--sky2);
+  color:var(--white);
+}
+.gf-pill.fwc.active{
+  background:linear-gradient(135deg,var(--yellow),var(--green));
+  border-color:transparent;color:var(--navy);
+}
+
+/* FWC block */
+.fwc-block{
+  background:
+    linear-gradient(135deg,rgba(255,216,0,0.06) 0%, transparent 60%),
+    var(--navy2);
+  border:1px solid rgba(255,216,0,0.25);
+  border-radius:16px;padding:14px;margin-bottom:12px;
+}
+.fwc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.fwc-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;letter-spacing:2px;color:var(--white);
+}
+.fwc-badge{
+  background:linear-gradient(135deg,var(--yellow),var(--yellow2));
+  color:var(--navy);font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:800;padding:3px 10px;
+  border-radius:12px;letter-spacing:1px;
+}
+.fwc-sub{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;color:rgba(255,255,255,0.4);
+  letter-spacing:1px;margin-bottom:8px;
+}
+.prog-track{
+  height:4px;background:rgba(255,255,255,0.08);
+  border-radius:4px;overflow:hidden;margin-bottom:10px;
+}
+.prog-fill{
+  height:100%;border-radius:4px;transition:width .5s ease;
+}
+.prog-fill.gold{background:linear-gradient(90deg,var(--sky),var(--yellow))}
+.prog-fill.red{background:var(--red)}
+
+.fwc-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:5px;
+}
+.fwc-cube{
+  aspect-ratio:1;border-radius:6px;
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.04);
+  cursor:pointer;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:1px;padding:2px;
+  transition:all .15s;
+}
+.fwc-cube:active{transform:scale(0.84)}
+.fwc-cube.have{
+  background:linear-gradient(105deg,#8B6914 0%,var(--yellow) 28%,#FFF8B0 50%,var(--yellow) 72%,#8B6914 100%);
+  background-size:200% auto;
+  border-color:rgba(255,210,0,0.85);
+  animation:shimmer 2.8s linear infinite;
+  box-shadow:0 2px 10px rgba(255,210,0,0.28);
+}
+.fwc-cube-id{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:11px;color:var(--yellow);line-height:1;
+}
+.fwc-cube.have .fwc-cube-id{color:var(--navy)}
+.fwc-cube-name{
+  font-size:6px;color:rgba(255,255,255,0.35);
+  text-align:center;line-height:1.2;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.fwc-cube.have .fwc-cube-name{color:rgba(0,0,0,0.55)}
+.fwc-cube.double{
+  background:linear-gradient(105deg,#FF6600 0%,#FF8800 25%,#FFEE88 50%,#FF8800 75%,#FF6600 100%);
+  background-size:200% auto;
+  border-color:rgba(255,136,0,0.9);
+  animation:shimmer 2.5s linear infinite;
+  box-shadow:0 2px 12px rgba(255,100,0,0.35);
+}
+.fwc-cube.double .fwc-cube-id{color:var(--navy)}
+.fwc-cube.double .fwc-cube-name{color:rgba(0,0,0,0.5)}
+
+/* Group block */
+.grp-block{margin-bottom:18px;content-visibility:auto;contain-intrinsic-size:auto 520px;}
+.grp-head{
+  display:flex;align-items:center;gap:9px;
+  margin-bottom:10px;padding-bottom:8px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.grp-badge{
+  font-family:'Bebas Neue',sans-serif;font-size:15px;
+  background:linear-gradient(135deg,var(--sky),var(--navy3));
+  color:var(--white);
+  width:30px;height:30px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;letter-spacing:0.5px;
+}
+.grp-info{flex:1}
+.grp-teams-text{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);
+  letter-spacing:0.3px;line-height:1.3;
+}
+.grp-progress{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;color:var(--white);
+  flex-shrink:0;
+}
+
+.teams-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:8px;
+}
+
+/* ─── COUNTRY CARD ─── */
+.c-card{
+  background:var(--navy2);
+  border-radius:var(--radius);
+  border:1.5px solid rgba(255,255,255,0.07);
+  overflow:hidden;
+  transition:border-color .25s,box-shadow .25s;
+  position:relative;
+}
+.c-card.complete{
+  border-color:var(--yellow);
+  box-shadow:0 0 16px rgba(255,210,0,0.2);
+}
+.c-banner{
+  position:relative;height:54px;overflow:hidden;
+}
+.c-banner-img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.c-banner-over{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0.04),rgba(0,0,0,0.68));
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:5px 8px;
+}
+.c-banner-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:700;
+  color:rgba(255,255,255,0.96);
+  text-shadow:0 1px 5px rgba(0,0,0,0.95);
+  line-height:1;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  max-width:72%;
+}
+.c-banner-count{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:15px;color:var(--yellow);
+  text-shadow:0 1px 5px rgba(0,0,0,0.95);
+  line-height:1;flex-shrink:0;
+}
+.c-card.complete .c-banner-count{color:#80ffb0}
+.c-body{padding:7px 8px 6px}
+.c-bar{
+  height:3px;background:rgba(255,255,255,0.08);
+  border-radius:3px;overflow:hidden;margin-bottom:6px;
+}
+.c-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--sky),var(--yellow));
+  border-radius:3px;transition:width .35s;
+}
+.c-card.complete .c-bar-fill{
+  background:linear-gradient(90deg,var(--green),var(--yellow));
+}
+
+/* Sticker cubes */
+.s-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:3px;margin-bottom:6px;
+}
+.s-cube{
+  aspect-ratio:1;border-radius:4px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.07);
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .12s;
+  position:relative;overflow:hidden;
+}
+.s-cube:active{transform:scale(0.78)}
+.s-cube .sn{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:10px;color:rgba(255,255,255,0.22);
+  line-height:1;pointer-events:none;
+  letter-spacing:0;
+}
+.s-cube.have{
+  background:linear-gradient(135deg,var(--yellow),var(--yellow2));
+  border-color:rgba(255,210,0,0.55);
+  box-shadow:0 1px 5px rgba(255,210,0,0.22);
+}
+.s-cube.have .sn{color:var(--navy)}
+.s-cube.double{
+  background:linear-gradient(135deg,#FF8800,var(--yellow));
+  border-color:rgba(255,136,0,0.65);
+  box-shadow:0 1px 5px rgba(255,136,0,0.3);
+}
+.s-cube.double .sn{color:var(--navy)}
+.s-cube.double::after{
+  content:'★';position:absolute;top:1px;right:1px;
+  font-size:5px;color:rgba(0,0,0,0.6);line-height:1;
+}
+.c-card.complete .s-cube.double{
+  background:linear-gradient(135deg,#00C853,var(--green));
+  border-color:rgba(0,200,83,0.6);
+}
+.c-card.complete .s-cube.double::after{color:rgba(255,255,255,0.7)}
+.c-card.complete .s-cube.double .sn{color:rgba(255,255,255,0.9)}
+.c-card.complete .s-cube.have{
+  background:linear-gradient(135deg,var(--green),var(--green2));
+  border-color:rgba(0,166,81,0.55);
+  box-shadow:0 1px 4px rgba(0,166,81,0.22);
+}
+.c-card.complete .s-cube.have .sn{color:rgba(255,255,255,0.9)}
+
+.c-btns{display:flex;gap:5px}
+.c-btn{
+  flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  border-radius:7px;padding:5px 0;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9px;font-weight:800;
+  letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);cursor:pointer;transition:all .15s;
+}
+.c-btn:active{background:var(--sky3);border-color:var(--sky2);color:var(--sky)}
+.c-btn.del:active{background:rgba(200,16,46,0.18);border-color:var(--red);color:#ff6070}
+
+/* ═══════════════════════════════
+   BUSCAR
+═══════════════════════════════ */
+.search-wrap{position:relative;margin-bottom:14px}
+.search-box{
+  width:100%;
+  background:var(--navy2);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);
+  padding:12px 14px 12px 44px;
+  font-family:'Barlow',sans-serif;font-size:14px;
+  color:var(--white);outline:none;
+}
+.search-box::placeholder{color:rgba(255,255,255,0.25)}
+.search-box:focus{border-color:var(--yellow)}
+.search-icon{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font-size:17px;pointer-events:none;
+}
+.sr-list{display:flex;flex-direction:column;gap:6px}
+.sr-item{
+  background:var(--navy2);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);
+  padding:11px 13px;
+  display:flex;align-items:center;gap:10px;cursor:pointer;
+  transition:border-color .2s;
+}
+.sr-item:active{border-color:var(--yellow)}
+.sr-flag-wrap{
+  width:36px;height:25px;border-radius:4px;
+  overflow:hidden;flex-shrink:0;
+  border:1px solid rgba(255,255,255,0.1);
+  background:var(--navy3);
+}
+.sr-flag-img{width:100%;height:100%;object-fit:cover}
+.sr-info{flex:1;min-width:0}
+.sr-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:700;color:var(--white);
+}
+.sr-sub{font-size:11px;color:rgba(255,255,255,0.35);margin-top:2px}
+.sr-mini{height:3px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;margin-top:5px}
+.sr-mini-fill{height:100%;background:var(--yellow);border-radius:3px}
+.sr-count{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22px;color:rgba(255,255,255,0.4);flex-shrink:0;
+}
+.search-empty{
+  text-align:center;padding:40px 20px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.2);
+}
+
+/* ═══════════════════════════════
+   FALTAN
+═══════════════════════════════ */
+.missing-lbl{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--yellow);
+  margin-bottom:10px;display:flex;align-items:center;gap:8px;
+}
+.missing-lbl::after{content:'';flex:1;height:1px;background:rgba(255,216,0,0.2)}
+.copy-btn{
+  width:100%;
+  background:linear-gradient(135deg,rgba(255,216,0,0.12),rgba(76,175,26,0.08));
+  border:1px solid rgba(255,216,0,0.25);
+  border-radius:var(--radius);padding:12px;
+  color:var(--white);
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;
+  letter-spacing:1.5px;text-transform:uppercase;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-bottom:14px;transition:all .2s;
+}
+.copy-btn:active{background:rgba(76,175,26,0.3);border-color:var(--green)}
+.miss-block{
+  background:var(--navy2);border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);padding:12px;margin-bottom:8px;
+}
+.miss-head{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.miss-tag{
+  background:var(--red);color:var(--white);
+  font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;
+  padding:2px 9px;border-radius:4px;letter-spacing:1px;
+}
+.miss-tag.fwc-t{background:linear-gradient(135deg,var(--yellow),var(--green));color:var(--navy)}
+.miss-sub{font-size:11px;color:rgba(255,255,255,0.35)}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{
+  background:rgba(200,16,46,0.15);
+  border:1px solid rgba(200,16,46,0.25);
+  color:#ff7585;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:12px;padding:2px 8px;border-radius:4px;letter-spacing:0.5px;
+}
+.chip.fc{
+  background:rgba(255,216,0,0.1);
+  border-color:rgba(255,216,0,0.25);
+  color:var(--yellow);
+}
+.all-ok{text-align:center;padding:50px 20px}
+.ok-trophy{font-size:56px;margin-bottom:12px}
+.all-ok p{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px;color:var(--yellow);letter-spacing:3px;
+}
+
+/* ═══════════════════════════════
+   AJUSTES
+═══════════════════════════════ */
+.set-card{
+  background:var(--navy2);border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);padding:14px;margin-bottom:12px;
+}
+.set-title{
+  font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;
+  color:var(--yellow);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.set-title::after{content:'';flex:1;height:1px;background:rgba(255,216,0,0.15)}
+.set-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.set-row:last-child{border-bottom:none}
+.set-row-lbl{font-size:13px;color:var(--white)}
+.set-row-sub{font-size:11px;color:rgba(255,255,255,0.3);margin-top:2px}
+.btn-danger{
+  background:rgba(200,16,46,0.2);border:1px solid rgba(200,16,46,0.35);
+  color:#ff6070;font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:800;letter-spacing:1px;
+  padding:7px 14px;border-radius:8px;cursor:pointer;
+}
+.btn-safe{
+  background:rgba(76,175,26,0.15);border:1px solid rgba(76,175,26,0.35);
+  color:var(--green);font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:800;letter-spacing:1px;
+  padding:7px 14px;border-radius:8px;cursor:pointer;
+}
+.set-stat{
+  font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);
+}
+
+/* ─── MODAL ─── */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,0.72);
+  display:flex;align-items:flex-end;justify-content:center;
+  backdrop-filter:blur(6px);
+}
+.modal-overlay.hidden{display:none!important}
+.modal-box{
+  background:var(--navy2);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px 20px 0 0;
+  padding:24px 18px calc(20px + var(--nav-h));
+  width:100%;max-width:500px;
+}
+.modal-msg{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:17px;font-weight:600;
+  color:var(--white);text-align:center;
+  line-height:1.45;margin-bottom:20px;letter-spacing:0.3px;
+}
+.modal-btns{display:flex;gap:10px}
+.modal-cancel{
+  flex:1;background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:13px;padding:14px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);cursor:pointer;
+}
+.modal-confirm{
+  flex:1;background:var(--sky);border:none;
+  border-radius:13px;padding:14px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:var(--white);cursor:pointer;
+}
+.modal-confirm.danger{background:var(--red)}
+
+/* ─── TOAST ─── */
+.toast{
+  position:fixed;
+  bottom:calc(var(--nav-h) + 14px);
+  left:50%;transform:translateX(-50%) translateY(16px);
+  background:var(--green2);color:var(--white);
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  padding:9px 22px;border-radius:22px;
+  opacity:0;transition:all .28s;
+  pointer-events:none;z-index:999;white-space:nowrap;
+  box-shadow:0 4px 16px rgba(0,0,0,0.4);
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-left">
+    <h1>PANINI · FIFA WC 2026™</h1>
+    <p>USA · Canadá · México · 11 Jun – 19 Jul</p>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <div class="sync-pill" id="syncPill"><div class="sync-dot"></div><span id="syncLabel">—</span></div>
+    <div class="topbar-emblem">⚽</div>
+  </div>
+</header>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay hidden" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-msg" id="modalMsg"></div>
+    <div class="modal-btns">
+      <button class="modal-cancel" id="modalCancel">Cancelar</button>
+      <button class="modal-confirm" id="modalConfirm">Confirmar</button>
+    </div>
+  </div>
+</div>
+<input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+
+<!-- ════ INICIO ════ -->
+<div class="page active" id="pageInicio">
+  <div class="hero">
+    <div class="hero-geo"></div><div class="hero-geo2"></div>
+    <div class="hero-eyebrow">Panini Tracker · Mundial 2026</div>
+    <div class="hero-title">Tu álbum,<br><span>tu mundial</span><br>2026™</div>
+    <div class="hero-sub">48 países · 20 figuritas c/u · 19 especiales FWC. Guardado en este teléfono.</div>
+    <div class="hero-prog-row">
+      <span>COMPLETITUD</span>
+      <strong id="heroPct">0%</strong>
+    </div>
+    <div class="hero-track"><div class="hero-fill" id="heroFill" style="width:0%"></div></div>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="goPage('pageAlbum')">Abrir álbum</button>
+      <button class="btn-outline" onclick="goPage('pageFaltan')">Ver faltantes</button>
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card y"><div class="sn" id="s1">0%</div><div class="sl">Completado</div></div>
+    <div class="stat-card g"><div class="sn" id="s2">0</div><div class="sl">Tengo · <span id="s5" style="color:var(--sky);font-family:'Barlow Condensed';font-size:12px;font-weight:700">0 rep.</span></div></div>
+    <div class="stat-card b"><div class="sn" id="s3">979</div><div class="sl">Me faltan</div></div>
+    <div class="stat-card r"><div class="sn" id="s4">0</div><div class="sl">Países completos</div></div>
+  </div>
+
+  <div class="quick-card">
+    <div class="qc-title">⚡ Resumen rápido</div>
+    <div class="quick-row">
+      <div class="quick-col">
+        <div class="qct">Más atrasados</div>
+        <div id="qBehind"></div>
+      </div>
+      <div class="quick-col">
+        <div class="qct">Más completos</div>
+        <div id="qAhead"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ ÁLBUM ════ -->
+<div class="page hidden" id="pageAlbum">
+  <div class="gf-outer">
+    <div class="gf-row">
+      <button class="gf-pill fwc" onclick="filterGrp('FWC',this)">🏆 FWC</button>
+      <button class="gf-pill active" id="gfAll" onclick="filterGrp('ALL',this)">Todos</button>
+      <button class="gf-pill" onclick="filterGrp('A',this)">Grupo A</button>
+      <button class="gf-pill" onclick="filterGrp('B',this)">Grupo B</button>
+      <button class="gf-pill" onclick="filterGrp('C',this)">Grupo C</button>
+      <button class="gf-pill" onclick="filterGrp('D',this)">Grupo D</button>
+      <button class="gf-pill" onclick="filterGrp('E',this)">Grupo E</button>
+      <button class="gf-pill" onclick="filterGrp('F',this)">Grupo F</button>
+      <button class="gf-pill" onclick="filterGrp('G',this)">Grupo G</button>
+      <button class="gf-pill" onclick="filterGrp('H',this)">Grupo H</button>
+      <button class="gf-pill" onclick="filterGrp('I',this)">Grupo I</button>
+      <button class="gf-pill" onclick="filterGrp('J',this)">Grupo J</button>
+      <button class="gf-pill" onclick="filterGrp('K',this)">Grupo K</button>
+      <button class="gf-pill" onclick="filterGrp('L',this)">Grupo L</button>
+    </div>
+  </div>
+  <div id="albumContent"></div>
+</div>
+
+<!-- ════ BUSCAR ════ -->
+<div class="page hidden" id="pageBuscar">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-box" id="searchInput" type="text"
+      placeholder="Argentina, BRA, FWC03..." oninput="doSearch()">
+  </div>
+  <div class="sr-list" id="searchResults">
+    <div class="search-empty">Escribí un país o código...</div>
+  </div>
+</div>
+
+<!-- ════ FALTANTES ════ -->
+<div class="page hidden" id="pageFaltan">
+  <button class="copy-btn" onclick="copyMissing()">📋 Copiar lista completa de faltantes</button>
+  <div class="missing-lbl">Figuritas que te faltan</div>
+  <div id="missingContent"></div>
+</div>
+
+<!-- ════ AJUSTES ════ -->
+<div class="page hidden" id="pageAjustes">
+  <div class="set-card">
+    <div class="set-title">Backup</div>
+    <div class="set-row">
+      <div><div class="set-row-lbl">Exportar álbum</div><div class="set-row-sub">Descarga un .json con todo tu progreso</div></div>
+      <button class="btn-safe" onclick="exportData()">Exportar</button>
+    </div>
+    <div class="set-row">
+      <div><div class="set-row-lbl">Importar álbum</div><div class="set-row-sub">Carga un .json guardado previamente</div></div>
+      <button class="btn-safe" onclick="document.getElementById('importFile').click()">Importar</button>
+    </div>
+  </div>
+  <div class="set-card">
+    <div class="set-title">Ajustes</div>
+    <div class="set-row">
+      <div><div class="set-row-lbl">Resetear álbum</div><div class="set-row-sub">Borra todo el progreso guardado</div></div>
+      <button class="btn-danger" onclick="resetAll()">Resetear</button>
+    </div>
+    <div class="set-row">
+      <div><div class="set-row-lbl">Marcar todo obtenido</div><div class="set-row-sub">Marca las 979 figuritas</div></div>
+      <button class="btn-safe" onclick="markAll()">Marcar</button>
+    </div>
+  </div>
+  <div class="set-card">
+    <div class="set-title">Info del álbum</div>
+    <div class="set-row"><div class="set-row-lbl">Total figuritas</div><span class="set-stat">979</span></div>
+    <div class="set-row"><div class="set-row-lbl">Países × 20 figuritas</div><span class="set-stat">48 × 20 = 960</span></div>
+    <div class="set-row"><div class="set-row-lbl">Cartas FWC especiales</div><span class="set-stat" style="color:var(--yellow)">19</span></div>
+    <div class="set-row"><div class="set-row-lbl">Grupos</div><span class="set-stat">12 (A – L)</span></div>
+    <div class="set-row"><div class="set-row-lbl">Sedes</div><span class="set-stat">3 países</span></div>
+  </div>
+</div>
+
+<!-- ════ NAV ════ -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" onclick="goPage('pageInicio',this)">
+    <span class="nav-icon">🏠</span><span class="nav-label">Inicio</span>
+  </button>
+  <button class="nav-btn" onclick="goPage('pageAlbum',this)">
+    <span class="nav-icon">📖</span><span class="nav-label">Álbum</span>
+  </button>
+  <button class="nav-btn" onclick="goPage('pageBuscar',this)">
+    <span class="nav-icon">🔍</span><span class="nav-label">Buscar</span>
+  </button>
+  <button class="nav-btn" onclick="goPage('pageFaltan',this)">
+    <span class="nav-icon">📋</span><span class="nav-label">Faltantes</span>
+  </button>
+  <button class="nav-btn" onclick="goPage('pageAjustes',this)">
+    <span class="nav-icon">⚙️</span><span class="nav-label">Ajustes</span>
+  </button>
+</nav>
+
+<script>
+// ── DATA ──
+const FWC_CARDS=[
+  {id:'FWC01',name:'Copa del Mundo'},{id:'FWC02',name:'Azteca'},{id:'FWC03',name:'MetLife'},
+  {id:'FWC04',name:'SoFi Stadium'},{id:'FWC05',name:'AT&T Stadium'},{id:'FWC06',name:'NRG Stadium'},
+  {id:'FWC07',name:'Arrowhead'},{id:'FWC08',name:'BMO Field'},{id:'FWC09',name:'BC Place'},
+  {id:'FWC10',name:'Est. Akron'},{id:'FWC11',name:'Est. BBVA'},{id:'FWC12',name:'Campeones'},
+  {id:'FWC13',name:'Brasil Hist.'},{id:'FWC14',name:'Mejores Goles'},{id:'FWC15',name:'Equipo Torneo'},
+  {id:'FWC16',name:'Bota de Oro'},{id:'FWC17',name:'Guante Oro'},{id:'FWC18',name:'Balón Oro'},
+  {id:'FWC19',name:'Final 2026'},
+];
+
+// iso2 code para flagcdn.com
+const GROUPS=[
+  {g:'A',teams:[
+    {n:'México',c:'MEX',iso:'mx'},{n:'Sudáfrica',c:'RSA',iso:'za'},
+    {n:'Corea del Sur',c:'KOR',iso:'kr'},{n:'Chequia',c:'CZE',iso:'cz'}
+  ]},
+  {g:'B',teams:[
+    {n:'Canadá',c:'CAN',iso:'ca'},{n:'Bosnia-Herz.',c:'BIH',iso:'ba'},
+    {n:'Qatar',c:'QAT',iso:'qa'},{n:'Suiza',c:'SUI',iso:'ch'}
+  ]},
+  {g:'C',teams:[
+    {n:'Brasil',c:'BRA',iso:'br'},{n:'Marruecos',c:'MAR',iso:'ma'},
+    {n:'Haití',c:'HAI',iso:'ht'},{n:'Escocia',c:'SCO',iso:'gb-sct'}
+  ]},
+  {g:'D',teams:[
+    {n:'Estados Unidos',c:'USA',iso:'us'},{n:'Paraguay',c:'PAR',iso:'py'},
+    {n:'Australia',c:'AUS',iso:'au'},{n:'Türkiye',c:'TUR',iso:'tr'}
+  ]},
+  {g:'E',teams:[
+    {n:'Alemania',c:'GER',iso:'de'},{n:'Curazao',c:'CUW',iso:'cw'},
+    {n:'Costa de Marfil',c:'CIV',iso:'ci'},{n:'Ecuador',c:'ECU',iso:'ec'}
+  ]},
+  {g:'F',teams:[
+    {n:'Países Bajos',c:'NED',iso:'nl'},{n:'Japón',c:'JPN',iso:'jp'},
+    {n:'Suecia',c:'SWE',iso:'se'},{n:'Túnez',c:'TUN',iso:'tn'}
+  ]},
+  {g:'G',teams:[
+    {n:'Bélgica',c:'BEL',iso:'be'},{n:'Egipto',c:'EGY',iso:'eg'},
+    {n:'Irán',c:'IRN',iso:'ir'},{n:'Nueva Zelanda',c:'NZL',iso:'nz'}
+  ]},
+  {g:'H',teams:[
+    {n:'España',c:'ESP',iso:'es'},{n:'Arabia Saudita',c:'KSA',iso:'sa'},
+    {n:'Uruguay',c:'URU',iso:'uy'},{n:'Cabo Verde',c:'CPV',iso:'cv'}
+  ]},
+  {g:'I',teams:[
+    {n:'Francia',c:'FRA',iso:'fr'},{n:'Senegal',c:'SEN',iso:'sn'},
+    {n:'Iraq',c:'IRQ',iso:'iq'},{n:'Noruega',c:'NOR',iso:'no'}
+  ]},
+  {g:'J',teams:[
+    {n:'Argentina',c:'ARG',iso:'ar'},{n:'Argelia',c:'ALG',iso:'dz'},
+    {n:'Austria',c:'AUT',iso:'at'},{n:'Jordania',c:'JOR',iso:'jo'}
+  ]},
+  {g:'K',teams:[
+    {n:'Portugal',c:'POR',iso:'pt'},{n:'DR Congo',c:'COD',iso:'cd'},
+    {n:'Uzbekistán',c:'UZB',iso:'uz'},{n:'Colombia',c:'COL',iso:'co'}
+  ]},
+  {g:'L',teams:[
+    {n:'Inglaterra',c:'ENG',iso:'gb-eng'},{n:'Croacia',c:'CRO',iso:'hr'},
+    {n:'Ghana',c:'GHA',iso:'gh'},{n:'Panamá',c:'PAN',iso:'pa'}
+  ]},
+];
+
+function flagUrl(iso){ return `https://flagcdn.com/w160/${iso}.png`; }
+
+// ── FIREBASE REST API ──
+const DB='https://mundial-figuritas-default-rtdb.firebaseio.com/panini26.json';
+
+function setSyncState(state,label){
+  const pill=document.getElementById('syncPill');
+  const lbl=document.getElementById('syncLabel');
+  if(!pill) return;
+  pill.className='sync-pill '+state;
+  lbl.textContent=label;
+}
+
+async function saveToCloud(data){
+  try{
+    const r=await fetch(DB,{method:'PUT',body:JSON.stringify(data),headers:{'Content-Type':'application/json'}});
+    if(r.ok) setSyncState('ok','Nube ✓');
+    else setSyncState('error','Error');
+  }catch{
+    setSyncState('error','Sin red');
+  }
+}
+
+async function loadFromCloud(){
+  try{
+    const r=await fetch(DB);
+    if(!r.ok) return null;
+    const d=await r.json();
+    return (d && typeof d==='object' && !Array.isArray(d)) ? d : null;
+  }catch{ return null; }
+}
+
+// ── STATE ──
+let ST={}, gf='ALL';
+function migrateData(){
+  // Migra booleanos a enteros: false→0, true→1
+  GROUPS.forEach(({teams})=>teams.forEach(({c})=>{
+    if(!ST[c]) ST[c]=Array(20).fill(0);
+    else if(ST[c].some(v=>typeof v==='boolean')) ST[c]=ST[c].map(v=>v?1:0);
+    while(ST[c].length<20) ST[c].push(0);
+  }));
+  if(!ST.FWC) ST.FWC=Array(19).fill(0);
+  else if(ST.FWC.some(v=>typeof v==='boolean')) ST.FWC=ST.FWC.map(v=>v?1:0);
+  while(ST.FWC.length<19) ST.FWC.push(0);
+}
+function load(){
+  try{ const s=localStorage.getItem('panini26v3'); if(s) ST=JSON.parse(s); }catch(e){}
+  migrateData();
+}
+function save(){
+  localStorage.setItem('panini26v3',JSON.stringify(ST));
+  setSyncState('syncing','Guardando…');
+  saveToCloud(ST);
+}
+
+// ── STATS ──
+function calcStats(){
+  let have=0,doubles=0,complete=0;
+  GROUPS.forEach(({teams})=>teams.forEach(({c})=>{
+    const n=ST[c].filter(v=>v>=1).length;
+    doubles+=ST[c].filter(v=>v>=2).length;
+    have+=n; if(n===20)complete++;
+  }));
+  have+=ST.FWC.filter(v=>v>=1).length;
+  doubles+=ST.FWC.filter(v=>v>=2).length;
+  return {have,doubles,missing:979-have,complete,pct:Math.round(have/979*100)};
+}
+function updateStats(){
+  const s=calcStats();
+  document.getElementById('heroPct').textContent=s.pct+'%';
+  document.getElementById('heroFill').style.width=s.pct+'%';
+  document.getElementById('s1').textContent=s.pct+'%';
+  document.getElementById('s2').textContent=s.have;
+  document.getElementById('s3').textContent=s.missing;
+  document.getElementById('s4').textContent=s.complete;
+  document.getElementById('s5').textContent=s.doubles+' rep.';
+  const all=GROUPS.flatMap(({teams})=>teams);
+  const sorted=[...all].sort((a,b)=>ST[a.c].filter(v=>v>=1).length-ST[b.c].filter(v=>v>=1).length);
+  const behind=sorted.slice(0,4), ahead=sorted.slice(-4).reverse();
+  document.getElementById('qBehind').innerHTML=behind.map(t=>{
+    const n=ST[t.c].filter(v=>v>=1).length;
+    return `<div class="qi"><img class="flag-img" src="${flagUrl(t.iso)}" loading="lazy"><span class="qname">${t.n}</span><span class="qval">${n}/20</span></div>`;
+  }).join('');
+  document.getElementById('qAhead').innerHTML=ahead.map(t=>{
+    const n=ST[t.c].filter(v=>v>=1).length;
+    return `<div class="qi ok"><img class="flag-img" src="${flagUrl(t.iso)}" loading="lazy"><span class="qname">${t.n}</span><span class="qval">${n}/20</span></div>`;
+  }).join('');
+}
+
+// ── TOGGLE ──
+// Ciclo: 0 (no tengo) → 1 (tengo) → 2 (repetida) → 0
+function toggleS(code,idx){ ST[code][idx]=(ST[code][idx]+1)%3; save(); updateStats(); refreshCard(code); }
+function toggleF(idx){ ST.FWC[idx]=(ST.FWC[idx]+1)%3; save(); updateStats(); refreshFWC(); }
+function setAll(code,val){ ST[code]=Array(20).fill(val?1:0); save(); updateStats(); refreshCard(code); }
+
+// ── BUILD FWC ──
+function fwcClass(v){ return v===0?'':v===1?' have':' double'; }
+function buildFWC(){
+  const have=ST.FWC.filter(v=>v>=1).length, pct=Math.round(have/19*100);
+  return `<div class="fwc-block" id="fwcBlock">
+    <div class="fwc-head">
+      <div class="fwc-title">🏆 CARTAS FWC ESPECIALES</div>
+      <span class="fwc-badge" id="fwcBadge">${have}/19</span>
+    </div>
+    <div class="fwc-sub" id="fwcSub">${pct}% completado · faltan ${19-have}</div>
+    <div class="prog-track"><div class="prog-fill gold" id="fwcProg" style="width:${pct}%"></div></div>
+    <div class="fwc-grid">
+      ${FWC_CARDS.map((c,i)=>`
+        <div class="fwc-cube${fwcClass(ST.FWC[i])}" id="fd${i}" onclick="toggleF(${i})">
+          <div class="fwc-cube-id">${c.id}</div>
+          <div class="fwc-cube-name">${c.name}</div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+}
+function refreshFWC(){
+  const have=ST.FWC.filter(v=>v>=1).length, pct=Math.round(have/19*100);
+  const b=document.getElementById('fwcBlock'); if(!b)return;
+  document.getElementById('fwcBadge').textContent=`${have}/19`;
+  document.getElementById('fwcSub').textContent=`${pct}% completado · faltan ${19-have}`;
+  document.getElementById('fwcProg').style.width=pct+'%';
+  FWC_CARDS.forEach((_,i)=>{ const d=document.getElementById('fd'+i); if(d) d.className='fwc-cube'+fwcClass(ST.FWC[i]); });
+}
+
+// ── BUILD CARD ──
+function cubeClass(v){ return v===0?'':v===1?' have':' have double'; }
+function buildCard({n,c,iso}){
+  const arr=ST[c], have=arr.filter(v=>v>=1).length, pct=Math.round(have/20*100);
+  const cubes=arr.map((v,i)=>`<div class="s-cube${cubeClass(v)}" onclick="toggleS('${c}',${i})"><span class="sn">${i+1}</span></div>`).join('');
+  return `<div class="c-card${have===20?' complete':''}" id="card-${c}">
+    <div class="c-banner">
+      <img class="c-banner-img" src="${flagUrl(iso)}" loading="lazy" alt="${n}">
+      <div class="c-banner-over">
+        <div class="c-banner-name">${n}</div>
+        <div class="c-banner-count">${have}/20</div>
+      </div>
+    </div>
+    <div class="c-body">
+      <div class="c-bar"><div class="c-bar-fill" style="width:${pct}%"></div></div>
+      <div class="s-grid">${cubes}</div>
+      <div class="c-btns">
+        <button class="c-btn" onclick="setAll('${c}',true)">✓ Todas</button>
+        <button class="c-btn del" onclick="setAll('${c}',false)">✕ Borrar</button>
+      </div>
+    </div>
+  </div>`;
+}
+function refreshCard(code){
+  const el=document.getElementById('card-'+code); if(!el)return;
+  const arr=ST[code], have=arr.filter(v=>v>=1).length, pct=Math.round(have/20*100);
+  el.className='c-card'+(have===20?' complete':'');
+  el.querySelector('.c-banner-count').textContent=`${have}/20`;
+  el.querySelector('.c-bar-fill').style.width=pct+'%';
+  el.querySelectorAll('.s-cube').forEach((cu,i)=>{ cu.className='s-cube'+cubeClass(arr[i]); });
+}
+
+// ── BUILD GROUP ──
+function buildGroup({g,teams}){
+  const th=teams.reduce((s,t)=>s+ST[t.c].filter(v=>v>=1).length,0), max=teams.length*20;
+  const names=teams.map(t=>t.n).join(' · ');
+  return `<div class="grp-block">
+    <div class="grp-head">
+      <div class="grp-badge">G${g}</div>
+      <div class="grp-info"><div class="grp-teams-text">${names}</div></div>
+      <div class="grp-progress">${Math.round(th/max*100)}%</div>
+    </div>
+    <div class="teams-grid">${teams.map(buildCard).join('')}</div>
+  </div>`;
+}
+
+// ── RENDER ALBUM ──
+function renderAlbum(){
+  let html='';
+  if(gf==='ALL'||gf==='FWC') html+=buildFWC();
+  if(gf==='ALL') GROUPS.forEach(g=>{ html+=buildGroup(g); });
+  else if(gf!=='FWC'){ const g=GROUPS.find(x=>x.g===gf); if(g) html+=buildGroup(g); }
+  document.getElementById('albumContent').innerHTML=html;
+}
+function filterGrp(g,btn){
+  gf=g;
+  document.querySelectorAll('.gf-pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  if(g==='ALL'){ const a=document.getElementById('gfAll'); if(a)a.classList.add('active'); }
+  renderAlbum();
+}
+
+// ── SEARCH ──
+function doSearch(){
+  const q=document.getElementById('searchInput').value.trim().toLowerCase();
+  const cont=document.getElementById('searchResults');
+  if(!q){ cont.innerHTML='<div class="search-empty">Escribí un país o código...</div>'; return; }
+  const all=GROUPS.flatMap(({g,teams})=>teams.map(t=>({...t,g})));
+  const matches=all.filter(t=>t.n.toLowerCase().includes(q)||t.c.toLowerCase().includes(q));
+  const fwcM=FWC_CARDS.filter(c=>c.id.toLowerCase().includes(q)||c.name.toLowerCase().includes(q));
+  let html='';
+  if(fwcM.length){
+    const h=ST.FWC.filter(Boolean).length;
+    html+=`<div class="sr-item" onclick="goFWC()">
+      <div class="sr-flag-wrap" style="display:flex;align-items:center;justify-content:center;font-size:18px">🏆</div>
+      <div class="sr-info">
+        <div class="sr-name">Cartas FWC Especiales</div>
+        <div class="sr-sub">19 cartas · ${h} obtenidas</div>
+        <div class="sr-mini"><div class="sr-mini-fill" style="width:${Math.round(h/19*100)}%"></div></div>
+      </div>
+      <div class="sr-count">${h}/19</div>
+    </div>`;
+  }
+  matches.forEach(t=>{
+    const h=ST[t.c].filter(v=>v>=1).length, p=Math.round(h/20*100);
+    html+=`<div class="sr-item" onclick="goTeam('${t.c}','${t.g}')">
+      <div class="sr-flag-wrap"><img class="sr-flag-img" src="${flagUrl(t.iso)}" loading="lazy"></div>
+      <div class="sr-info">
+        <div class="sr-name">${t.n} <span style="font-size:10px;color:rgba(255,255,255,0.3);font-family:'Barlow Condensed'">· G${t.g}</span></div>
+        <div class="sr-sub">${h}/20 figuritas · ${p}%</div>
+        <div class="sr-mini"><div class="sr-mini-fill" style="width:${p}%"></div></div>
+      </div>
+      <div class="sr-count">${h}/20</div>
+    </div>`;
+  });
+  if(!html) html='<div class="search-empty">Sin resultados 😕</div>';
+  cont.innerHTML=html;
+}
+function goFWC(){
+  const fwcPill=document.querySelector('.gf-pill.fwc');
+  filterGrp('FWC',fwcPill);
+  goPage('pageAlbum');
+}
+function goTeam(code,g){
+  gf=g;
+  document.querySelectorAll('.gf-pill').forEach(b=>b.classList.remove('active'));
+  const pills=document.querySelectorAll('.gf-pill');
+  const idx=['A','B','C','D','E','F','G','H','I','J','K','L'].indexOf(g);
+  if(pills[idx+2]) pills[idx+2].classList.add('active');
+  goPage('pageAlbum');
+  setTimeout(()=>{ const el=document.getElementById('card-'+code); if(el) el.scrollIntoView({behavior:'smooth',block:'center'}); },300);
+}
+
+// ── MISSING ──
+function renderMissing(){
+  let html='', tot=0;
+  const fm=FWC_CARDS.filter((_,i)=>ST.FWC[i]===0);
+  if(fm.length){
+    tot+=fm.length;
+    html+=`<div class="miss-block">
+      <div class="miss-head"><span class="miss-tag fwc-t">FWC</span><span class="miss-sub">Cartas especiales · ${fm.length} faltan</span></div>
+      <div class="chips">${fm.map(c=>`<span class="chip fc">${c.id}</span>`).join('')}</div>
+    </div>`;
+  }
+  GROUPS.forEach(({g,teams})=>{
+    let gh='';
+    teams.forEach(({n,c,iso})=>{
+      const miss=ST[c].map((v,i)=>v===0?i+1:null).filter(Boolean);
+      if(miss.length){
+        tot+=miss.length;
+        gh+=`<div style="margin-bottom:9px">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+            <img src="${flagUrl(iso)}" style="width:18px;height:12px;border-radius:2px;border:1px solid rgba(255,255,255,0.1)" loading="lazy">
+            <span style="font-family:'Barlow Condensed';font-size:11px;font-weight:700;color:rgba(255,255,255,0.55)">${n}</span>
+            <span style="font-family:'Barlow Condensed';font-size:11px;color:var(--red)">(${miss.length} faltan)</span>
+          </div>
+          <div class="chips">${miss.map(n=>`<span class="chip">${c}-${String(n).padStart(2,'0')}</span>`).join('')}</div>
+        </div>`;
+      }
+    });
+    if(gh) html+=`<div class="miss-block"><div class="miss-head"><span class="miss-tag">G${g}</span></div>${gh}</div>`;
+  });
+  if(!tot) html=`<div class="all-ok"><div class="ok-trophy">🏆</div><p>¡Álbum completo!</p></div>`;
+  document.getElementById('missingContent').innerHTML=html;
+  document.querySelector('.copy-btn').style.display=tot?'':'none';
+}
+function copyMissing(){
+  let lines=['=== FALTANTES PANINI MUNDIAL 2026 ===',''];
+  const fm=FWC_CARDS.filter((_,i)=>ST.FWC[i]===0);
+  if(fm.length) lines.push('FWC: '+fm.map(c=>c.id).join(', '),'');
+  GROUPS.forEach(({g,teams})=>{
+    let gl=[];
+    teams.forEach(({n,c})=>{ const miss=ST[c].map((v,i)=>v===0?`${c}-${String(i+1).padStart(2,'0')}`:null).filter(Boolean); if(miss.length) gl.push(`${n}: ${miss.join(', ')}`); });
+    if(gl.length) lines.push(`GRUPO ${g}:`,...gl,'');
+  });
+  navigator.clipboard.writeText(lines.join('\n')).then(()=>toast('¡Copiado al portapapeles! 📋')).catch(()=>toast('No se pudo copiar'));
+}
+
+// ── NAVIGATION ──
+function goPage(pid, btn){
+  document.querySelectorAll('.page').forEach(p=>{ p.classList.remove('active'); p.classList.add('hidden'); });
+  const p=document.getElementById(pid); p.classList.remove('hidden'); p.classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  else{
+    const map={pageInicio:0,pageAlbum:1,pageBuscar:2,pageFaltan:3,pageAjustes:4};
+    const nb=document.querySelectorAll('.nav-btn');
+    if(map[pid]!==undefined) nb[map[pid]].classList.add('active');
+  }
+  if(pid==='pageAlbum') renderAlbum();
+  if(pid==='pageFaltan') renderMissing();
+  if(pid==='pageBuscar') doSearch();
+  window.scrollTo(0,0);
+}
+
+// ── MODAL ──
+function showModal(msg, onConfirm, danger=true){
+  const ov=document.getElementById('modalOverlay');
+  document.getElementById('modalMsg').textContent=msg;
+  const btn=document.getElementById('modalConfirm');
+  btn.className='modal-confirm'+(danger?' danger':'');
+  ov.classList.remove('hidden');
+  const close=()=>ov.classList.add('hidden');
+  document.getElementById('modalCancel').onclick=close;
+  btn.onclick=()=>{ close(); onConfirm(); };
+  ov.onclick=(e)=>{ if(e.target===ov) close(); };
+}
+
+// ── SETTINGS ──
+function resetAll(){
+  showModal('¿Resetear todo el progreso? No se puede deshacer.',()=>{
+    GROUPS.forEach(({teams})=>teams.forEach(({c})=>{ ST[c]=Array(20).fill(0); }));
+    ST.FWC=Array(19).fill(0); save(); updateStats(); toast('Progreso reseteado');
+  }, true);
+}
+function markAll(){
+  showModal('¿Marcar las 979 figuritas como obtenidas?',()=>{
+    GROUPS.forEach(({teams})=>teams.forEach(({c})=>{ ST[c]=Array(20).fill(1); }));
+    ST.FWC=Array(19).fill(1); save(); updateStats(); toast('¡Todo marcado! ✓');
+  }, false);
+}
+
+// ── EXPORT / IMPORT ──
+function exportData(){
+  const blob=new Blob([JSON.stringify(ST,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download=`panini-mundial-2026-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('¡Exportado! Guardá el archivo en un lugar seguro 💾');
+}
+function importData(e){
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=(ev)=>{
+    try{
+      const data=JSON.parse(ev.target.result);
+      if(typeof data!=='object'||Array.isArray(data)) throw new Error();
+      showModal('¿Reemplazar el progreso actual con el archivo importado?',()=>{
+        ST=data; migrateData(); save(); updateStats(); toast('¡Importado correctamente! ✓');
+      }, false);
+    }catch{ toast('Error al leer el archivo 😕'); }
+  };
+  reader.readAsText(file);
+  e.target.value='';
+}
+
+// ── TOAST ──
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
+
+// ── INIT ──
+async function init(){
+  // 1. Carga local instantánea para que la app aparezca de inmediato
+  load();
+  updateStats();
+  setSyncState('syncing','Cargando…');
+
+  // 2. Intenta traer datos desde la nube
+  const cloud=await loadFromCloud();
+  if(cloud){
+    // La nube gana: puede tener datos más nuevos de otro dispositivo
+    ST=cloud;
+    migrateData();
+    localStorage.setItem('panini26v3',JSON.stringify(ST));
+    updateStats();
+    // Si el álbum está abierto, lo re-renderiza con datos frescos
+    if(document.getElementById('pageAlbum').classList.contains('active')) renderAlbum();
+    if(document.getElementById('pageFaltan').classList.contains('active')) renderMissing();
+    setSyncState('ok','Nube ✓');
+  } else {
+    setSyncState('error','Sin nube');
+    // Si hay datos locales igual los usamos (ya están cargados arriba)
+  }
+}
+init();
+</script>
+</body>
+</html>
